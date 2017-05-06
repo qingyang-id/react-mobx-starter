@@ -23,6 +23,7 @@ react mobx webpack babel。
 ```bash
 $ npm install                   # Install project dependencies
 $ npm start                     # Compile and launch
+$ open http://localhost:3000
 ```
 
 开发过程中，你用得最多的会是`npm start`，但是这里还有很多其它的处理：
@@ -65,18 +66,10 @@ $ npm start                     # Compile and launch
 │   ├── containers           # 全局可复用的容器组件
 │   ├── static               # 静态文件(不要到处imported源文件)
 │   ├── styles               # 程序样式
+│   ├── lib                  # 第三方依赖，如腾讯sdk
 │   ├── stores               # Mobx指定块
 │   │   └── *.js            # 创建和使用mobx store
-│   └── routes               # 主路由和异步分割点
-│       ├── index.js         # 用store启动主程序路由
-│       ├── Root.js          # 为上下文providers包住组件
-│       └── Home             # 不规则路由
-│           ├── index.js     # 路由定义和代码异步分割
-│           ├── assets       # 组件引入的静态资源
-│           ├── components   # 直观React组件
-│           ├── container    # 连接actions和store
-│           ├── modules      # reducers/constants/actions的集合
-│           └── routes **    # 不规则子路由(** 可选择的)
+│   └── routes               # 主路由和异步分割点 todo
 └── tests                    # 单元测试
 ```
 
@@ -99,5 +92,5 @@ Babel被配置[babel-plugin-transform-runtime](https://www.npmjs.com/package/bab
 如果你正在使用nginx处理程序，确保所有的路由都直接指向 `~/dist/index.html` 文件，然后让react-router处理剩下的事。如果你不是很确定应该怎么做，[文档在这里](https://github.com/ReactTraining/react-router/blob/v3/docs/guides/Histories.md#configuring-your-server)。Express在脚手架中用于扩展服务和代理API，或者其它你想要做的事，这完全取决于你。
 
 ## 提交代码要求
-1.***所有代码必须编译通过，执行`npm run lint`无报错方可提交代码***
-2.***可提交未开发完成的代码，但必须编译通过且能正常运行***
+1. ***所有代码必须编译通过，执行`npm run lint`无报错方可提交代码***
+2. ***可提交未开发完成的代码，但必须编译通过且能正常运行***

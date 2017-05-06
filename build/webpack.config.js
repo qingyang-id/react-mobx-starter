@@ -6,9 +6,7 @@ const config = require('../config');
 const debug = require('debug')('app:webpack:config');
 
 const paths = config.utils_paths;
-const DEV = config.globals.DEV;
-const PROD = config.globals.PROD;
-const TEST = config.globals.TEST;
+const { DEV, PROD, TEST } = config.globals;
 
 debug('Creating configuration.');
 const webpackConfig = {
@@ -100,7 +98,6 @@ if (DEV) {
   debug('Enable plugins for production (OccurenceOrder, Dedupe & UglifyJS).');
   webpackConfig.plugins.push(
     new webpack.optimize.OccurrenceOrderPlugin(),
-    new webpack.optimize.DedupePlugin(),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
         unused: true,

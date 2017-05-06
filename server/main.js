@@ -15,7 +15,7 @@ const paths = config.utils_paths;
 // ------------------------------------
 if (config.env === 'development') {
   const compiler = webpack(webpackConfig);
-
+  console.log('devopment')
   debug('Enable webpack dev and HMR middleware');
   app.use(webpackDevMiddleware(compiler, {
     publicPath: webpackConfig.output.publicPath,

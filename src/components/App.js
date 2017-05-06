@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import { Provider, observer } from 'mobx-react';
-import LazyRoute from 'lazy-route';
 
 import TopBar from './base/header/TopBar';
+import Home from './Home';
+import List from './page/List';
+import Detail from './page/Detail';
+import Login from './Login';
+import NotFound from './base/NotFound';
 
 @observer
 export default class App extends Component {
@@ -29,26 +33,12 @@ export default class App extends Component {
           <div className='wrapper'>
             <TopBar />
 
-            <Route
-              exact
-              path='/'
-              render={props => <LazyRoute {...props} component={import('./Home')} />}
-            />
-            <Route
-              exact
-              path='/pages'
-              render={props => <LazyRoute {...props} component={import('./page/List')} />}
-            />
-            <Route
-              exact
-              path='/pages/:id'
-              render={props => <LazyRoute {...props} component={import('./page/Detail')} />}
-            />
-            <Route
-              exact
-              path='/login'
-              render={props => <LazyRoute {...props} component={import('./Login')} />}
-            />
+            <Route exact path='/' component={Home} />
+            <Route exact path='/pages' component={List} />
+            <Route exact path='/pages/:id' component={Detail} />
+            <Route exact path='/login' component={Login} />
+            <Route exact path='/404' component={NotFound} />
+            <Route exact path='*' render={() => (<Redirect to='/404' />)} />
             {!!(timeToRefresh && timeToRefresh <= 4) && this.store.refreshToken()}
             <footer>
               Cobbled together by <a href='https://github.com/Sailor20' target='_blank'>@Sailor20</a> | github:
