@@ -1,0 +1,48 @@
+{
+  "parser": "babel-eslint",
+  "extends": "airbnb",
+  "parserOptions": {
+    "ecmaVersion": 2017,
+    "sourceType": "module"
+  },
+  "rules": {
+    "max-len": [1, 120, 2, { "ignoreComments": true }],
+    "func-names": ["warn", "never"],
+    "no-underscore-dangle": ["error", { "allow": ["_id", "_json"] }],
+    "no-param-reassign": ["error", { "props": false }],
+    "comma-dangle": ["error", "only-multiline"],
+    "global-require": 0,
+    "no-nested-ternary": 0,
+    "jsx-quotes": [2, "prefer-single"],
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "react/jsx-no-target-blank": 0,
+    "react/no-children-prop": 0,
+    "react/forbid-prop-types": 0,
+    "react/prop-types": 0,
+    "react/prefer-stateless-function": 0,
+    "react/self-closing-comp": 0,
+    "jsx-a11y/aria-props": 2,
+    "jsx-a11y/heading-has-content": 0,
+    "jsx-a11y/href-no-hash": 2,
+    "jsx-a11y/label-has-for": 2,
+    "jsx-a11y/mouse-events-have-key-events": 2,
+    "jsx-a11y/role-has-required-aria-props": 2,
+    "jsx-a11y/role-supports-aria-props": 2,
+    "jsx-a11y/no-static-element-interactions": 0
+
+  },
+  "plugins": [
+    "babel",
+    "react",
+    "promise"
+  ],
+  "env": {
+    "browser" : true
+  },
+  "globals": {
+    "DEV"      : false,
+    "TEST"     : false,
+    "PROD"     : false,
+    "COVERAGE" : false
+  }
+}
